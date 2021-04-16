@@ -69,7 +69,6 @@ class OpenIdConfig
         $this->redirectUrl = $redirectUrl;
         $this->clientSecret = $clientSecret;
         $this->scope = 'openid';
-        $this->redirectUrl = '';
     }
 
     /**
