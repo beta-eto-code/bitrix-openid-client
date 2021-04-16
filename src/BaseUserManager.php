@@ -6,6 +6,7 @@ namespace Bitrix\Openid\Client;
 
 use Bitrix\Main\Error;
 use Bitrix\Main\Result;
+use Bitrix\Main\Security\Random;
 use Bitrix\Main\UserTable;
 use Bitrix\Openid\Client\Interfaces\UserManagerInterface;
 use CUser;
@@ -63,7 +64,7 @@ abstract class BaseUserManager implements UserManagerInterface
             return $user;
         }
 
-
+        $importData['PASSWORD'] = Random::getString(12, true);
         $id = (int)$userEntity->Add($importData);
         if ($id > 0) {
             $user->id = $id;

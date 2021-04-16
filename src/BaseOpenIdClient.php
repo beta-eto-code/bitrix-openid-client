@@ -72,6 +72,11 @@ abstract class BaseOpenIdClient implements OpenIdClientInterface
      */
     public function getCredential($id = null): ?CredentialInterface
     {
+        $credential = $this->credentialManager->load($id);
+        if ($credential instanceof CredentialInterface) {
+            return $credential;
+        }
+
         $response = $this->requestToken();
         if (!$this->isValidResponse($response)) {
             return null;
