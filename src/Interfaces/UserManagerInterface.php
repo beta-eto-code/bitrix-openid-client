@@ -11,6 +11,11 @@ use Psr\Http\Message\ResponseInterface;
 interface UserManagerInterface
 {
     /**
+     * @return bool
+     */
+    public function isAuthorized(): bool;
+
+    /**
      * @param ResponseInterface $response
      * @return User|null
      */

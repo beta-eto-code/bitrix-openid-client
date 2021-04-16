@@ -16,6 +16,15 @@ abstract class BaseUserManager implements UserManagerInterface
     abstract protected function makeUserFromResponse(ResponseInterface $response): ?User;
 
     /**
+     * @return bool
+     */
+    public function isAuthorized(): bool
+    {
+        global $USER;
+        return (bool)$USER->IsAuthorized();
+    }
+
+    /**
      * @param ResponseInterface $response
      * @return User|null
      */
@@ -71,6 +80,10 @@ abstract class BaseUserManager implements UserManagerInterface
     public function authorize(User $user): Result
     {
         $result = new Result();
+        if ($this->isAuthorized()) {
+            return $result->addError(new Error('Already authorized', 400));
+        }
+
         if (empty($user->id)) {
             return $result->addError(new Error('Invalid user', 400));
         }
