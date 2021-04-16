@@ -1,0 +1,30 @@
+{
+    "name": "beta/bitrix-openid-client",
+    "description": "OpenId client for Bitrix",
+    "type": "bitrix-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexander Nesterov",
+            "email": "alex19pov31@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.2",
+        "ext-json": "*",
+        "beta/bitrix-psr7": "dev-master",
+        "beta/bitrix-psr18": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@cvs.beta.agency:nesterov/bitrix-psr7"
+        },
+        {
+            "type": "vcs",
+            "url": "git@cvs.beta.agency:nesterov/bitrix-psr18"
+        }
+    ]
+
+}
