@@ -13,4 +13,9 @@ interface OpenIdAuthorizeInterface
      * @return Result
      */
     public function authorize($id = null): Result;
+
+    /**
+     * @return bool
+     */
+    public function isAuthorized(): bool;
 }

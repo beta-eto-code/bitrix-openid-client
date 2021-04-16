@@ -30,12 +30,20 @@ class OpenIdAuthorize implements OpenIdAuthorizeInterface
     }
 
     /**
+     * @return bool
+     */
+    public function isAuthorized(): bool
+    {
+        return $this->userManager->isAuthorized();
+    }
+
+    /**
      * @param null $id
      * @return Result
      */
     public function authorize($id = null): Result
     {
-        if ($this->userManager->isAuthorized()) {
+        if ($this->isAuthorized()) {
             return (new Result())->addError(new Error('Already authorized', 400));
         }
 
