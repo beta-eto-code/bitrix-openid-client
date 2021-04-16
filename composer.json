@@ -1,7 +1,7 @@
 {
     "name": "beta/bitrix-openid-client",
     "description": "OpenId client for Bitrix",
-    "type": "lib",
+    "type": "bitrix-module",
     "license": "MIT",
     "authors": [
         {
@@ -15,6 +15,11 @@
         "ext-json": "*",
         "beta/bitrix-psr7": "dev-master",
         "beta/bitrix-psr18": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bitrix\\Openid\\Client\\": "src/"
+        }
     },
     "repositories": [
         {
