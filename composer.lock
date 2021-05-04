@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60e0ac1d2ddeed3632e47fd8bc013fbc",
+    "content-hash": "b96573558529e5ed9b631cb99275bee9",
     "packages": [
         {
             "name": "beta/bitrix-psr18",
@@ -12,7 +12,7 @@
             "source": {
                 "type": "git",
                 "url": "git@cvs.beta.agency:nesterov/bitrix-psr18",
-                "reference": "be6d6315052272e473d3b1fe6dba6c3f0d3138d0"
+                "reference": "1b0e22bae85cba7c2373c1614e96b4e979a5b881"
             },
             "require": {
                 "guzzlehttp/psr7": "^1.8",
@@ -29,7 +29,7 @@
                 "MIT"
             ],
             "description": "PSR-18 adapter for Bitrix",
-            "time": "2021-04-14T14:04:34+00:00"
+            "time": "2021-04-16T06:25:04+00:00"
         },
         {
             "name": "beta/bitrix-psr7",
@@ -37,7 +37,7 @@
             "source": {
                 "type": "git",
                 "url": "git@cvs.beta.agency:nesterov/bitrix-psr7",
-                "reference": "9eae2b7a6612f77703d0644f182b7afe5fb1384d"
+                "reference": "76ea3a9612df343662a1dae6d2437ab5499937fc"
             },
             "require": {
                 "guzzlehttp/psr7": "^1.8",
@@ -60,7 +60,7 @@
                 }
             ],
             "description": "PSR-7 adapter for Bitrix",
-            "time": "2021-04-14T12:58:58+00:00"
+            "time": "2021-05-04T09:52:38+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -68,12 +68,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "359b1f4a6fc1f3b97f8ea8ffd5a576f4f5151cff"
+                "reference": "dc960a912984efb74d0a90222870c72c87f10c91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/359b1f4a6fc1f3b97f8ea8ffd5a576f4f5151cff",
-                "reference": "359b1f4a6fc1f3b97f8ea8ffd5a576f4f5151cff",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/dc960a912984efb74d0a90222870c72c87f10c91",
+                "reference": "dc960a912984efb74d0a90222870c72c87f10c91",
                 "shasum": ""
             },
             "require": {
@@ -135,7 +135,7 @@
                 "issues": "https://github.com/guzzle/psr7/issues",
                 "source": "https://github.com/guzzle/psr7/tree/1.x"
             },
-            "time": "2021-03-21T17:21:22+00:00"
+            "time": "2021-04-26T09:17:50+00:00"
         },
         {
             "name": "psr/http-client",
@@ -299,7 +299,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.2"
+        "php": ">=7.2",
+        "ext-json": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
