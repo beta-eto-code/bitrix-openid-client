@@ -92,7 +92,7 @@ abstract class BaseOpenIdClient implements OpenIdClientInterface
 
     public function refreshCredential(RefreshCredentialInterface $credential, $id = null): ?CredentialInterface
     {
-        $response = $this->requestRefreshToken();
+        $response = $this->requestRefreshToken($credential);
         if (!$this->isValidResponse($response)) {
             return null;
         }
