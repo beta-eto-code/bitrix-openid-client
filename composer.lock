@@ -4,15 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b96573558529e5ed9b631cb99275bee9",
+    "content-hash": "0e157dfaf047ffed3acee4050cddca21",
     "packages": [
         {
             "name": "beta/bitrix-psr18",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@cvs.beta.agency:nesterov/bitrix-psr18",
+                "url": "https://github.com/beta-eto-code/bitrix-psr18.git",
                 "reference": "1b0e22bae85cba7c2373c1614e96b4e979a5b881"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beta-eto-code/bitrix-psr18/zipball/1b0e22bae85cba7c2373c1614e96b4e979a5b881",
+                "reference": "1b0e22bae85cba7c2373c1614e96b4e979a5b881",
+                "shasum": ""
             },
             "require": {
                 "guzzlehttp/psr7": "^1.8",
@@ -29,6 +35,10 @@
                 "MIT"
             ],
             "description": "PSR-18 adapter for Bitrix",
+            "support": {
+                "source": "https://github.com/beta-eto-code/bitrix-psr18/tree/0.1.0",
+                "issues": "https://github.com/beta-eto-code/bitrix-psr18/issues"
+            },
             "time": "2021-04-16T06:25:04+00:00"
         },
         {
@@ -36,8 +46,14 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@cvs.beta.agency:nesterov/bitrix-psr7",
+                "url": "https://github.com/beta-eto-code/bitrix-psr7.git",
                 "reference": "76ea3a9612df343662a1dae6d2437ab5499937fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beta-eto-code/bitrix-psr7/zipball/76ea3a9612df343662a1dae6d2437ab5499937fc",
+                "reference": "76ea3a9612df343662a1dae6d2437ab5499937fc",
+                "shasum": ""
             },
             "require": {
                 "guzzlehttp/psr7": "^1.8",
@@ -60,6 +76,10 @@
                 }
             ],
             "description": "PSR-7 adapter for Bitrix",
+            "support": {
+                "source": "https://github.com/beta-eto-code/bitrix-psr7/tree/0.1.1",
+                "issues": "https://github.com/beta-eto-code/bitrix-psr7/issues"
+            },
             "time": "2021-05-04T09:52:38+00:00"
         },
         {
