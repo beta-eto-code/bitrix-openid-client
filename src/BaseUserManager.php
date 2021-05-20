@@ -103,7 +103,7 @@ abstract class BaseUserManager implements UserManagerInterface
         }
 
         global $USER;
-        $isSuccess = $USER->Authorize($user->id);
+        $isSuccess = $USER->Authorize($user->id, true);
         if (!$isSuccess) {
             return $result->addError(new Error($USER->LAST_ERROR));
         }
