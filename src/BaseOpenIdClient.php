@@ -3,7 +3,7 @@
 
 namespace Bitrix\Openid\Client;
 
-
+use Bitrix\Main\Result;
 use Bitrix\Openid\Client\Exceptions\RequestException;
 use Bitrix\Openid\Client\Interfaces\CredentialInterface;
 use Bitrix\Openid\Client\Interfaces\CredentialManagerInterface;
@@ -88,6 +88,15 @@ abstract class BaseOpenIdClient implements OpenIdClientInterface
         }
 
         return $credential;
+    }
+
+    /**
+     * @param mixed $id
+     * @return Result
+     */
+    public function clear($id = null): Result
+    {
+        return $this->credentialManager->clear($id);
     }
 
     public function refreshCredential(RefreshCredentialInterface $credential, $id = null): ?CredentialInterface

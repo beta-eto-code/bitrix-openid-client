@@ -3,7 +3,7 @@
 
 namespace Bitrix\Openid\Client\Interfaces;
 
-
+use Bitrix\Main\Result;
 use Bitrix\Openid\Client\OpenIdConfig;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -40,6 +40,12 @@ interface OpenIdClientInterface
      * @return CredentialInterface|null
      */
     public function refreshCredential(RefreshCredentialInterface $credential, $id = null): ?CredentialInterface;
+
+    /**
+     * @param mixed $id
+     * @return Result
+     */
+    public function clear($id = null): Result;
 
     /**
      * @param CredentialInterface $credential

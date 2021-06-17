@@ -27,4 +27,10 @@ interface CredentialManagerInterface
      * @return Result
      */
     public function save(CredentialInterface $credential, $id = null): Result;
+
+    /**
+     * @param null $id
+     * @return Result
+     */
+    public function clear($id = null): Result;
 }

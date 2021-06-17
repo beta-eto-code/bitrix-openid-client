@@ -82,4 +82,15 @@ class SessionCredentialManager implements CredentialManagerInterface
     {
         return $this->credentialClass::initFromResponse($response);
     }
+
+    /**
+     * @param null $id
+     * @return Result
+     */
+    public function clear($id = null): Result
+    {
+        $this->session->remove($this->key);
+
+        return new Result();
+    }
 }
