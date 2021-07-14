@@ -9,27 +9,15 @@
             "email": "alex19pov31@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "php": ">=7.2",
         "ext-json": "*",
-        "beta/bitrix-psr7": "dev-master",
-        "beta/bitrix-psr18": "dev-master"
+        "beta/bitrix-psr7": "^1.0",
+        "beta/bitrix-psr18": "^1.0"
     },
     "autoload": {
         "psr-4": {
             "Bitrix\\Openid\\Client\\": "src/"
         }
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:beta-eto-code/bitrix-psr7.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:beta-eto-code/bitrix-psr18.git"
-        }
-    ]
-
+    }
 }
