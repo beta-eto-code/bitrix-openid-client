@@ -11,6 +11,7 @@ use Bitrix\Openid\Client\Interfaces\OpenIdClientInterface;
 use BitrixPSR7\ServerRequest;
 use Bitrix\Openid\Client\Interfaces\OpenIdAuthorizeInterface;
 use Bitrix\Openid\Client\Interfaces\UserManagerInterface;
+use Psr\Http\Message\ResponseInterface;
 
 class OpenIdAuthorize implements OpenIdAuthorizeInterface
 {
@@ -43,8 +44,9 @@ class OpenIdAuthorize implements OpenIdAuthorizeInterface
      */
     public function authorize($id = null): Result
     {
+        $result = new Result();
         if ($this->isAuthorized()) {
-            return (new Result())->addError(new Error('Already authorized', 400));
+            return $result->addError(new Error('Already authorized', 400));
         }
 
         $bxRequest = Application::getInstance()->getContext()->getRequest();
@@ -55,9 +57,13 @@ class OpenIdAuthorize implements OpenIdAuthorizeInterface
         }
 
         $response = $this->client->getUserInfo($credential);
+        if (!($response instanceof ResponseInterface)) {
+            return $result->addError(new Error('Response is empty!'));
+        }
+
         $user = $this->userManager->loadUser($response);
         if (!($user instanceof User)) {
-            return (new Result())->addError(new Error('User is not load'));
+            return $result->addError(new Error('User is not load'));
         }
 
         return $this->userManager->authorize($user);
