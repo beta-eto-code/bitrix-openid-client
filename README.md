@@ -13,7 +13,7 @@ use Bitrix\Openid\Client\Interfaces\OpenIdClientInterface;
 
 $httpClient = new Client();                         // HTTP клиент для отправки запросов
 $credentialManager = new SessionCredentialManager(  // менеджер данных авторизации
-    SomeCredentialImplementation:class,             // некоторый декоратор запросов для заполнения данных авторизации
+    SomeCredentialImplementation::class,            // некоторый декоратор запросов для заполнения данных авторизации
     'session_key'                                   // ключ сесии где будут хранится данные для авторизации
 );
 $handler = new AuthCodeResolveHandler();            // обработчик для получения кода авторизации
@@ -25,7 +25,7 @@ $config = new OpenIdConfig(                         // настройки OpenId
     'client_secret'                                 // ключ приложения
 );
 
-$openIdClient = new RusalOpenIdClient(              // реализация OpenId клиента - OpenIdClientInterface
+$openIdClient = new SomeOpenIdClient(               // реализация OpenId клиента - OpenIdClientInterface
     $credentialManager,
     $httpClient,
     $handler,
