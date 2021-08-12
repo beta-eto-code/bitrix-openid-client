@@ -14,12 +14,28 @@ use Psr\Http\Message\ResponseInterface;
 class CookieCredentialManager implements CredentialManagerInterface
 {
     /**
+     * @var string
+     */
+    private $key;
+
+    /**
+     * @var CredentialInterface|string
+     */
+    private $credentialClass;
+
+    /**
+     * @var int
+     */
+    private $defaultTTL;
+
+    /**
      * @param string|CredentialInterface $credentialClass
      * @param string $key
      */
-    public function __construct(string $credentialClass, string $key)
+    public function __construct(string $credentialClass, string $key, int $defaultTTL = null)
     {
         $this->credentialClass = $credentialClass;
+        $this->defaultTTL = $defaultTTL ?? (60*60*24*2);
         $this->key = $key;
     }
 
@@ -57,7 +73,10 @@ class CookieCredentialManager implements CredentialManagerInterface
         try {
             $data = $credential->export();
             $server = Application::getInstance()->getContext()->getServer();
-            setcookie($this->key.$id, $data, time()+(60*60*24*2), '/', $server->getHttpHost());
+
+            $credentialTTL = $credential->getTTL();
+            $expiredAt = $credentialTTL > 0 ? $credentialTTL + time() : $this->defaultTTL + time();
+            setcookie($this->key.$id, $data, $expiredAt, '/', $server->getHttpHost());
         } catch (\Throwable $e) {
             return $result->addError(new Error($e->getMessage()));
         }

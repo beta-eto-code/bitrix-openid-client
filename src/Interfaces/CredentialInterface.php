@@ -28,6 +28,11 @@ interface CredentialInterface
     public static function import(string $data): ?CredentialInterface;
 
     /**
+     * @return int
+     */
+    public function getTTL(): int;
+
+    /**
      * @return bool
      */
     public function isExpired(): bool;
