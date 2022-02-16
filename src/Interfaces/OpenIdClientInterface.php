@@ -22,20 +22,20 @@ interface OpenIdClientInterface
 
     /**
      * @param ServerRequestInterface $request
-     * @param null $id
+     * @param mixed $id
      * @return mixed
      */
     public function handle(ServerRequestInterface $request, $id = null);
 
     /**
-     * @param null $id
+     * @param mixed $id
      * @return CredentialInterface|null
      */
     public function getCredential($id = null): ?CredentialInterface;
 
     /**
      * @param RefreshCredentialInterface $credential
-     * @param null $id
+     * @param mixed $id
      * @return CredentialInterface|null
      */
     public function refreshCredential(RefreshCredentialInterface $credential, $id = null): ?CredentialInterface;
@@ -43,6 +43,7 @@ interface OpenIdClientInterface
     /**
      * @param mixed $id
      * @return Result
+     * @psalm-suppress UndefinedClass
      */
     public function clear($id = null): Result;
 

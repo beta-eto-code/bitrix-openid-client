@@ -37,8 +37,9 @@ class OpenIdAuthorize implements OpenIdAuthorizeInterface
     }
 
     /**
-     * @param null $id
+     * @param mixed $id
      * @return Result
+     * @psalm-suppress UndefinedClass
      */
     public function authorize($id = null): Result
     {
@@ -52,6 +53,10 @@ class OpenIdAuthorize implements OpenIdAuthorizeInterface
         $credential = $this->client->getCredential($id);
         if (!$credential) {
             $this->client->redirectToAuth();
+        }
+
+        if (empty($credential)) {
+            return $result->addError(new Error('Credential is empty!'));
         }
 
         $response = $this->client->getUserInfo($credential);

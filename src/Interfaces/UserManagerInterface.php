@@ -22,6 +22,7 @@ interface UserManagerInterface
     /**
      * @param User $user
      * @return Result
+     * @psalm-suppress UndefinedClass
      */
     public function authorize(User $user): Result;
 }

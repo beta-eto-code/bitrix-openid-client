@@ -39,3 +39,6 @@ jobs:
 
       - name: Run code sniffer
         run: composer run-script cs
+
+      - name: Run static analyzer
+        run: composer run-script analyze

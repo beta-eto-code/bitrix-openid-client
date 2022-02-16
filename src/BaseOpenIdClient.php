@@ -51,7 +51,7 @@ abstract class BaseOpenIdClient implements OpenIdClientInterface
 
     /**
      * @param ServerRequestInterface $request
-     * @param null $id
+     * @param mixed $id
      * @return void
      */
     public function handle(ServerRequestInterface $request, $id = null)
@@ -59,13 +59,17 @@ abstract class BaseOpenIdClient implements OpenIdClientInterface
         $this->handler->handle($request, $this, $id);
     }
 
+    /**
+     * @return void
+     * @psalm-suppress UndefinedFunction
+     */
     public function redirectToAuth()
     {
         LocalRedirect($this->getRedirectAuthUrl(), true);
     }
 
     /**
-     * @param null $id
+     * @param mixed $id
      * @return CredentialInterface|null
      */
     public function getCredential($id = null): ?CredentialInterface
@@ -91,6 +95,7 @@ abstract class BaseOpenIdClient implements OpenIdClientInterface
     /**
      * @param mixed $id
      * @return Result
+     * @psalm-suppress UndefinedClass
      */
     public function clear($id = null): Result
     {
@@ -100,7 +105,7 @@ abstract class BaseOpenIdClient implements OpenIdClientInterface
     public function refreshCredential(RefreshCredentialInterface $credential, $id = null): ?CredentialInterface
     {
         $response = $this->requestRefreshToken($credential);
-        if (!$this->isValidResponse($response)) {
+        if (empty($response) || !$this->isValidResponse($response)) {
             return null;
         }
 
@@ -131,6 +136,10 @@ abstract class BaseOpenIdClient implements OpenIdClientInterface
         return $response->getStatusCode() === $expectedStatus;
     }
 
+    /**
+     * @param OpenIdHandlerInterface $handler
+     * @return void
+     */
     public function setHandler(OpenIdHandlerInterface $handler)
     {
         $this->handler = $handler;

@@ -15,6 +15,7 @@ class SessionCredentialManager implements CredentialManagerInterface
 {
     /**
      * @var SessionInterface
+     * @psalm-suppress UndefinedClass
      */
     private $session;
     /**
@@ -23,17 +24,18 @@ class SessionCredentialManager implements CredentialManagerInterface
     private $key;
 
     /**
-     * @var CredentialInterface|string
+     * @var CredentialInterface
      */
     private $credentialClass;
 
     /**
      * SessionCredentialManager constructor.
-     * @param string|CredentialInterface $credentialClass
+     * @param CredentialInterface $credentialClass
      * @param string $key
      * @param SessionInterface|null $session
+     * @psalm-suppress UndefinedClass
      */
-    public function __construct(string $credentialClass, string $key, SessionInterface $session = null)
+    public function __construct($credentialClass, string $key, SessionInterface $session = null)
     {
         $this->credentialClass = $credentialClass;
         $this->key = $key;
@@ -41,8 +43,9 @@ class SessionCredentialManager implements CredentialManagerInterface
     }
 
     /**
-     * @param null $id
+     * @param mixed $id
      * @return CredentialInterface|null
+     * @psalm-suppress UndefinedClass
      */
     public function load($id = null): ?CredentialInterface
     {
@@ -56,8 +59,9 @@ class SessionCredentialManager implements CredentialManagerInterface
 
     /**
      * @param CredentialInterface $credential
-     * @param null $id
+     * @param mixed $id
      * @return Result
+     * @psalm-suppress UndefinedClass
      */
     public function save(CredentialInterface $credential, $id = null): Result
     {
@@ -82,8 +86,9 @@ class SessionCredentialManager implements CredentialManagerInterface
     }
 
     /**
-     * @param null $id
+     * @param mixed $id
      * @return Result
+     * @psalm-suppress UndefinedClass
      */
     public function clear($id = null): Result
     {

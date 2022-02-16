@@ -7,8 +7,9 @@ use Bitrix\Main\Result;
 interface OpenIdAuthorizeInterface
 {
     /**
-     * @param null $id
+     * @param mixed $id
      * @return Result
+     * @psalm-suppress UndefinedClass
      */
     public function authorize($id = null): Result;
 

@@ -26,6 +26,7 @@ abstract class BaseUserManager implements UserManagerInterface
     /**
      * @param ResponseInterface $response
      * @return User|null
+     * @psalm-suppress UndefinedClass
      */
     public function loadUser(ResponseInterface $response): ?User
     {
@@ -75,6 +76,7 @@ abstract class BaseUserManager implements UserManagerInterface
     /**
      * @param User $user
      * @return Result
+     * @psalm-suppress UndefinedClass
      */
     public function authorize(User $user): Result
     {

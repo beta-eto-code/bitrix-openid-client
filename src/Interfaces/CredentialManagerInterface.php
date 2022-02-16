@@ -14,21 +14,23 @@ interface CredentialManagerInterface
     public function createFromResponse(ResponseInterface $response): ?CredentialInterface;
 
     /**
-     * @param null $id
+     * @param mixed $id
      * @return CredentialInterface|null
      */
     public function load($id = null): ?CredentialInterface;
 
     /**
      * @param CredentialInterface $credential
-     * @param null $id
+     * @param mixed $id
      * @return Result
+     * @psalm-suppress UndefinedClass
      */
     public function save(CredentialInterface $credential, $id = null): Result;
 
     /**
-     * @param null $id
+     * @param mixed $id
      * @return Result
+     * @psalm-suppress UndefinedClass
      */
     public function clear($id = null): Result;
 }

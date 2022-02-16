@@ -66,10 +66,12 @@ class OpenIdConfig
         $this->redirectUrl = $redirectUrl;
         $this->clientSecret = $clientSecret;
         $this->scope = 'openid';
+        $this->code = '';
     }
 
     /**
      * @param string $code
+     * @return void
      */
     public function setAuthCode(string $code)
     {
