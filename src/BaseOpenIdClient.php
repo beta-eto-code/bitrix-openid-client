@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Bitrix\Openid\Client;
 
 use Bitrix\Main\Result;
@@ -38,8 +37,7 @@ abstract class BaseOpenIdClient implements OpenIdClientInterface
         ClientInterface $httpClient,
         OpenIdHandlerInterface $handler,
         OpenIdConfig $config
-    )
-    {
+    ) {
         $this->credentialManager = $credentialManager;
         $this->httpClient = $httpClient;
         $this->handler = $handler;

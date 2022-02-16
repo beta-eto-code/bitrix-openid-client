@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Bitrix\Openid\Client;
-
 
 use Bitrix\Main\Application;
 use Bitrix\Main\Error;

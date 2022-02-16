@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Bitrix\Openid\Client;
-
 
 use Bitrix\Openid\Client\Interfaces\OpenIdClientInterface;
 use Bitrix\Openid\Client\Interfaces\OpenIdHandlerInterface;

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Bitrix\Openid\Client\Exceptions;
-
 
 use Bitrix\Openid\Client\Interfaces\ResponseExceptionInterface;
 use Exception;
@@ -30,13 +28,12 @@ class ResponseException extends Exception implements ResponseExceptionInterface
      * @param Throwable|null $previous
      */
     public function __construct(
-        RequestInterface  $request,
+        RequestInterface $request,
         ResponseInterface $response,
         $message = "",
         $code = 0,
         Throwable $previous = null
-    )
-    {
+    ) {
         $this->request = $request;
         $this->response = $response;
         parent::__construct($message, $code, $previous);

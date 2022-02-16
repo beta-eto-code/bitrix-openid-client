@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Bitrix\Openid\Client;
-
 
 use Psr\Http\Message\RequestInterface;
 
@@ -61,8 +59,7 @@ class OpenIdConfig
         string $redirectUrl,
         string $clientId,
         string $clientSecret
-    )
-    {
+    ) {
         $this->loginUrl = $loginUrl;
         $this->tokenUrl = $tokenUrl;
         $this->clientId = $clientId;

@@ -35,7 +35,7 @@ class CookieCredentialManager implements CredentialManagerInterface
     public function __construct(string $credentialClass, string $key, int $defaultTTL = null)
     {
         $this->credentialClass = $credentialClass;
-        $this->defaultTTL = $defaultTTL ?? (60*60*24*2);
+        $this->defaultTTL = $defaultTTL ?? (60 * 60 * 24 * 2);
         $this->key = $key;
     }
 
@@ -54,7 +54,7 @@ class CookieCredentialManager implements CredentialManagerInterface
      */
     public function load($id = null): ?CredentialInterface
     {
-        $cookieData = $_COOKIE[$this->key.$id] ?? null;
+        $cookieData = $_COOKIE[$this->key . $id] ?? null;
         if (empty($cookieData)) {
             return null;
         }
@@ -76,7 +76,7 @@ class CookieCredentialManager implements CredentialManagerInterface
 
             $credentialTTL = $credential->getTTL();
             $expiredAt = $credentialTTL > 0 ? $credentialTTL + time() : $this->defaultTTL + time();
-            setcookie($this->key.$id, $data, $expiredAt, '/', $server->getHttpHost());
+            setcookie($this->key . $id, $data, $expiredAt, '/', $server->getHttpHost());
         } catch (\Throwable $e) {
             return $result->addError(new Error($e->getMessage()));
         }
@@ -90,9 +90,9 @@ class CookieCredentialManager implements CredentialManagerInterface
      */
     public function clear($id = null): Result
     {
-        unset($_COOKIE[$this->key.$id]);
+        unset($_COOKIE[$this->key . $id]);
         $server = Application::getInstance()->getContext()->getServer();
-        setcookie($this->key.$id, null, -1, '/', $server->getHttpHost());
+        setcookie($this->key . $id, null, -1, '/', $server->getHttpHost());
 
         return new Result();
     }

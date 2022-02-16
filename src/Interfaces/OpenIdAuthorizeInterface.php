@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Bitrix\Openid\Client\Interfaces;
-
 
 use Bitrix\Main\Result;
 

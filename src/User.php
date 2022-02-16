@@ -1,48 +1,46 @@
 <?php
 
-
 namespace Bitrix\Openid\Client;
-
 
 class User
 {
   /**
    * @var int
    */
-  public $id;
+    public $id;
   /**
    * @var string
    */
-  public $name;
+    public $name;
   /**
    * @var string
    */
-  public $lastName;
+    public $lastName;
   /**
    * @var string
    */
-  public $secondName;
+    public $secondName;
   /**
    * @var string
    */
-  public $email;
+    public $email;
   /**
    * @var bool
    */
-  public $isActive;
+    public $isActive;
     /**
      * @var string
      */
-  public $login;
+    public $login;
 
-  public function __construct(array $data = [])
-  {
-    $this->id = (int)$data['id'];
-    $this->login = (string)$data['login'];
-    $this->name = (string)$data['name'];
-    $this->lastName = (string)$data['last_name'];
-    $this->secondName = (string)$data['second_name'];
-    $this->email = (string)$data['email'];
-    $this->isActive = (bool)$data['active'];
-  }
+    public function __construct(array $data = [])
+    {
+        $this->id = (int)$data['id'];
+        $this->login = (string)$data['login'];
+        $this->name = (string)$data['name'];
+        $this->lastName = (string)$data['last_name'];
+        $this->secondName = (string)$data['second_name'];
+        $this->email = (string)$data['email'];
+        $this->isActive = (bool)$data['active'];
+    }
 }
