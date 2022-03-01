@@ -10,6 +10,7 @@ use BitrixPSR7\ServerRequest;
 use Bitrix\Openid\Client\Interfaces\OpenIdAuthorizeInterface;
 use Bitrix\Openid\Client\Interfaces\UserManagerInterface;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class OpenIdAuthorize implements OpenIdAuthorizeInterface
 {
@@ -38,17 +39,18 @@ class OpenIdAuthorize implements OpenIdAuthorizeInterface
 
     /**
      * @param mixed $id
+     * @param ServerRequestInterface|null $request
      * @return Result
      * @psalm-suppress UndefinedClass
      */
-    public function authorize($id = null): Result
+    public function authorize($id = null, ?ServerRequestInterface $request = null): Result
     {
         $result = new Result();
         if ($this->isAuthorized()) {
             return $result->addError(new Error('Already authorized', 400));
         }
 
-        $bxRequest = Application::getInstance()->getContext()->getRequest();
+        $bxRequest = $request ?? Application::getInstance()->getContext()->getRequest();
         $this->client->handle(new ServerRequest($bxRequest));
         $credential = $this->client->getCredential($id);
         if (!$credential) {
