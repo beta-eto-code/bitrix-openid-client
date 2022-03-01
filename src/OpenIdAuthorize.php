@@ -50,8 +50,8 @@ class OpenIdAuthorize implements OpenIdAuthorizeInterface
             return $result->addError(new Error('Already authorized', 400));
         }
 
-        $bxRequest = $request ?? Application::getInstance()->getContext()->getRequest();
-        $this->client->handle(new ServerRequest($bxRequest));
+        $request = $request ?? new ServerRequest(Application::getInstance()->getContext()->getRequest());
+        $this->client->handle($request);
         $credential = $this->client->getCredential($id);
         if (!$credential) {
             $this->client->redirectToAuth();
