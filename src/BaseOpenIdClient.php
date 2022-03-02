@@ -95,7 +95,6 @@ abstract class BaseOpenIdClient implements OpenIdClientInterface
     /**
      * @param mixed $id
      * @return Result
-     * @psalm-suppress UndefinedClass
      */
     public function clear($id = null): Result
     {

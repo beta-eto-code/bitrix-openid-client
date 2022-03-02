@@ -67,7 +67,6 @@ class CookieCredentialManager implements CredentialManagerInterface
      * @param CredentialInterface $credential
      * @param mixed $id
      * @return Result
-     * @psalm-suppress UndefinedClass
      */
     public function save(CredentialInterface $credential, $id = null): Result
     {
@@ -89,7 +88,6 @@ class CookieCredentialManager implements CredentialManagerInterface
     /**
      * @param mixed $id
      * @return Result
-     * @psalm-suppress UndefinedClass
      */
     public function clear($id = null): Result
     {

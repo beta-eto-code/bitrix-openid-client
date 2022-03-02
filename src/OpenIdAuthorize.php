@@ -41,7 +41,6 @@ class OpenIdAuthorize implements OpenIdAuthorizeInterface
      * @param mixed $id
      * @param ServerRequestInterface|null $request
      * @return Result
-     * @psalm-suppress UndefinedClass
      */
     public function authorize($id = null, ?ServerRequestInterface $request = null): Result
     {
