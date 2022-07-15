@@ -53,7 +53,7 @@ class OpenIdAuthorize implements OpenIdAuthorizeInterface
         $this->client->handle($request);
         $credential = $this->client->getCredential($id);
         if (!$credential) {
-            $this->client->redirectToAuth();
+            return $this->client->redirectToAuth();
         }
 
         if (empty($credential)) {
