@@ -56,6 +56,9 @@ class OpenIdAuthorize implements OpenIdAuthorizeInterface
             return $this->client->redirectToAuth();
         }
 
+        /**
+         * @psalm-suppress TypeDoesNotContainType
+         */
         if (empty($credential)) {
             return $result->addError(new Error('Credential is empty!'));
         }
