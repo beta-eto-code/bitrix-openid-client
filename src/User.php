@@ -35,12 +35,12 @@ class User
 
     public function __construct(array $data = [])
     {
-        $this->id = (int)$data['id'];
-        $this->login = (string)$data['login'];
-        $this->name = (string)$data['name'];
-        $this->lastName = (string)$data['last_name'];
-        $this->secondName = (string)$data['second_name'];
-        $this->email = (string)$data['email'];
-        $this->isActive = (bool)$data['active'];
+        $this->id = (int) ($data['id'] ?? 0);
+        $this->login = (string) ($data['login'] ?? '');
+        $this->name = (string) ($data['name'] ?? '');
+        $this->lastName = (string) ($data['last_name'] ?? '');
+        $this->secondName = (string) ($data['second_name'] ?? '');
+        $this->email = (string) ($data['email'] ?? '');
+        $this->isActive = (bool) ($data['active'] ?? '');
     }
 }
